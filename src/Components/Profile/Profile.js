@@ -46,7 +46,9 @@ const Profile = () => {
       console.log(event.target.files[0]);
       const data = new FormData();
       data.append("file", event.target.files[0]);
-      const res = await axios.post(`${SERVER}/Profile`, data);
+      const res = await axios.post(`${SERVER}/Profile`, data, {
+        withCredentials: true,
+      });
       // then print response status
       if (res.status !== 500) {
         window.location.reload();

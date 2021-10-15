@@ -24,7 +24,11 @@ const AllComments = () => {
   const [postOwner, setpostOwner] = useState({});
 
   const fetchCommentsOnPost = async () => {
-    const res = await axios.post("/getComments", { _id: idOfPost });
+    const res = await axios.post(
+      "/getComments",
+      { _id: idOfPost },
+      { withCredentials: true }
+    );
     setpostData(res.data);
     setpostOwner(res.data.user);
     setcomments(res.data.Comments);

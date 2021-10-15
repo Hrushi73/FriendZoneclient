@@ -131,7 +131,9 @@ const CroppedImageUpload = () => {
       formData.append("file", file);
       formData.append("caption", caption);
       console.log(formData);
-      const res = axios.post(`${SERVER}/selectImage`, formData);
+      const res = axios.post(`${SERVER}/selectImage`, formData, {
+        withCredentials: true,
+      });
       if (res.status !== 500) {
         History.push("/");
       }

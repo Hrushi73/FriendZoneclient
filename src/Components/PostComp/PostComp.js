@@ -24,10 +24,14 @@ const PostComp = ({ key, post }) => {
   };
 
   const submitComment = async () => {
-    const res = await axios.post("/comment", {
-      comment: mycomment,
-      postid: post._id,
-    });
+    const res = await axios.post(
+      "/comment",
+      {
+        comment: mycomment,
+        postid: post._id,
+      },
+      { withCredentials: true }
+    );
     if (res.status !== 500) {
       setmycomment("");
     }
@@ -35,7 +39,11 @@ const PostComp = ({ key, post }) => {
 
   const handleLikes = async () => {
     const value = heartColor === "#adadad" ? 1 : -1;
-    const res = await axios.post("like", { value: value, postid: post._id });
+    const res = await axios.post(
+      "like",
+      { value: value, postid: post._id },
+      { withCredentials: true }
+    );
     if (res.status !== 500) {
       setheartColor("#ff3377");
     } else {

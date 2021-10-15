@@ -81,10 +81,14 @@ const Login = () => {
       }));
 
       if (checkEmail(email) && checkPassword(password)) {
-        const res = await axios.post(`${SERVER}/Login`, {
-          email: email,
-          password: password,
-        });
+        const res = await axios.post(
+          `${SERVER}/Login`,
+          {
+            email: email,
+            password: password,
+          },
+          { withCredentials: true }
+        );
 
         if (res.status === 200) {
           setnotFoundMessage("");

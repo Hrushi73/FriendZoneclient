@@ -6,10 +6,14 @@ function Follow({ key, suggestion, fetchSuggestions }) {
   const SERVER = process.env.SERVER;
   const addFollowing = async () => {
     try {
-      await axios.post(`${SERVER}/following`, {
-        _id: suggestion._id,
-        userName: suggestion.userName,
-      });
+      await axios.post(
+        `${SERVER}/following`,
+        {
+          _id: suggestion._id,
+          userName: suggestion.userName,
+        },
+        { withCredentials: true }
+      );
       fetchSuggestions();
     } catch (err) {
       console.log("Some error happened" + err);

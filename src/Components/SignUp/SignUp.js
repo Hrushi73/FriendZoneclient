@@ -133,11 +133,15 @@ const SignUp = () => {
         checkPassword(userInfo.password) &&
         checkConfirmPassword(userInfo.password, userInfo.confPassword)
       ) {
-        res = await axios.post(`${SERVER}/signup`, {
-          userName: userInfo.userName,
-          email: userInfo.email,
-          password: userInfo.password,
-        });
+        res = await axios.post(
+          `${SERVER}/signup`,
+          {
+            userName: userInfo.userName,
+            email: userInfo.email,
+            password: userInfo.password,
+          },
+          { withCredentials: true }
+        );
         if (res.status === 200) {
           History.push("/");
         }
