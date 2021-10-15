@@ -139,7 +139,7 @@ const SignUp = () => {
           password: userInfo.password,
         });
         if (res.status === 200) {
-          History.push("/Login");
+          History.push("/");
         }
       }
     } catch (err) {

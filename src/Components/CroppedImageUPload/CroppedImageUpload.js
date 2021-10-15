@@ -28,7 +28,7 @@ const CroppedImageUpload = () => {
       }
       fetchData();
     } catch (err) {
-      History.push("/Login");
+      History.push("/");
     }
   }, []);
 

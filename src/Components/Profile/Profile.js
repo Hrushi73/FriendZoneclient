@@ -37,7 +37,7 @@ const Profile = () => {
     try {
       fetchData();
     } catch (err) {
-      History.push("/Login");
+      History.push("/");
     }
   }, []);
 

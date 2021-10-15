@@ -29,7 +29,7 @@ const Home = () => {
       fetchData();
       fetchPosts();
     } catch (err) {
-      History.push("/Login");
+      History.push("/");
     }
   }, []);
 

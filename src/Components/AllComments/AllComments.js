@@ -34,7 +34,7 @@ const AllComments = () => {
     try {
       fetchCommentsOnPost();
     } catch (err) {
-      History.push("/Login");
+      History.push("/");
     }
   }, []);
 
